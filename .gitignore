@@ -1,0 +1,10 @@
+# IDEs and editors
+.vs
+*.bak
+
+# Files
+/.sass-cache
+/node_modules
+/assets/.env
+/documents
+/output
