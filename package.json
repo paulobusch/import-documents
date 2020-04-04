@@ -9,6 +9,7 @@
   "author": "paulo",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "lodash": "^4.17.15",
     "sync-mysql": "^3.0.1"
   }

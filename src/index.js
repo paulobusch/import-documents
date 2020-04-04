@@ -1,4 +1,7 @@
-const { Config, Columns, Files, MySqlConfig } = require('../config');
+const dotenv = require('dotenv');
+dotenv.config({ path: '.env' });
+
+const { Config, Columns, Files } = require('../config');
 const { Query } = require('./utils/query');
 const { NewId } = require('./utils/random');
 const { File } = require('./utils/file');
@@ -15,7 +18,13 @@ const async = async () => {
         return;
     }
 
-    const connection = new mysql(MySqlConfig);
+    const connection = new mysql({
+        host: process.env.DB_HOST,
+        port: process.env.DB_PORT,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASS,
+        database: process.env.DB_NAME
+    });
     const customerKfs = files.map(f => `'${f.kf_customer}'`).join(',');
     const queryCustomers = "select id, kf from customers where kf in (" + customerKfs + ")";
     const customers = await connection.query(queryCustomers);

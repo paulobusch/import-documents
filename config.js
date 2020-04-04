@@ -3,12 +3,6 @@ module.exports = {
         idUser: 'oiyhjkmn',
         limit: 500,
     },
-    MySqlConfig: {
-        host: 'localhost',
-        user: 'root',
-        password: '123',
-        database: 'vetorial'
-    },
     Files: {
         input: 'documents',
         output: 'output'
